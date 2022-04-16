@@ -144,26 +144,74 @@ def SimpleTest():
     print(random_weighted_graph(w, n, 0.7))
 
 def advancedTest():
-    data=[]
+    KruskalTime=[]
+    ConnectedTime=[]
     m=0
+    n=0
     for i in range(3,50):
         for j in range(200):
-            wg=random_weighted_graph(10,i,np.random.random(1))
-            t=timer()
+            wg=random_weighted_graph(10,i,0.35)
+            tK=timer()
             MST_Kruskal(wg,i)
-            t=timer()-t
-            m+=t
+            tK=timer()-tK
+            tc=timer()
+            Connect_comp(wg,i)
+            tc=timer()-tc
+            m+=tK
+            n+=tc
         m/=200
-        data.append(m)
-    return data
+        n/=200
+        KruskalTime.append(m)
+        ConnectedTime.append(n)
+    return KruskalTime,ConnectedTime
+
+def advancedTest2():
+    KruskalTime=[]
+    ConnectedTime=[]
+    m=0
+    n=0
+    for i in range(0,100):
+        for j in range(200):
+            wg=random_weighted_graph(10,30,i/100)
+            tK=timer()
+            MST_Kruskal(wg,30)
+            tK=timer()-tK
+            tc=timer()
+            Connect_comp(wg,30)
+            tc=timer()-tc
+            m+=tK
+            n+=tc
+        m/=200
+        n/=200
+        KruskalTime.append(m)
+        ConnectedTime.append(n)
+    return KruskalTime,ConnectedTime
+def plot(K,title):
+    x = np.arange(0, 50, 10)
+    y = np.arange(0)
+    plt.plot(K)
+    plt.title(title)
+    plt.xlabel('nodes')
+    plt.ylabel('time ')
+   # plt.legend(['Kruskal', 'Connected components'])
+    plt.show()
 if __name__ == '__main__':
     n = 5
     p = 0.3
     w = 10
-    data=[]
+    kruskalTime=[]
+    connectedTime=[]
+    kruskalTimeProb = []
+    connectedTimeProb = []
     SimpleTest()
-    data=advancedTest()
-    plt.plot(data)
+    kruskalTime,connectedTime=advancedTest()
+    kruskalTimeProb,connectedTimeProb=advancedTest2()
+    plot(kruskalTime,"test incremento nodi Kruskal")
+    plot(connectedTime, "test incremento nodi componenti connesse")
+    plot(kruskalTimeProb,"test incremento probabilità Kruskal")
+    plot(connectedTimeProb,"test incremento probabilità componenti connesse")
+
+    """plt.plot(data)
     plt.show()
     weightedgraph = random_weighted_graph(w, n, p)
     print(weightedgraph)
@@ -176,5 +224,5 @@ if __name__ == '__main__':
 
     for s in u.set:
         print(s.set, s.set[0])
-
+    """
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
