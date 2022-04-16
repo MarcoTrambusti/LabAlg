@@ -99,10 +99,10 @@ class RB:
 
         self.root.color = BLACK
 
-    def insert(self, z):
+    def insert(self, k):
         y = self.NIL
         x = self.root
-
+        z=Node(k)
         while x != self.NIL:
             y = x
             if z.key < x.key:
