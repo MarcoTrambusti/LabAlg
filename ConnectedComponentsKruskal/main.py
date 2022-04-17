@@ -5,7 +5,6 @@
 
 import matplotlib.pyplot as plt
 import networkx as nx
-# generazione di grafi casuali con un numero di nodi a scelta ed una determinata probabilità di presenza di archi tra vertici
 import numpy as np
 from timeit import default_timer as timer
 from RandomWeightedGraph import random_weighted_graph
@@ -23,12 +22,19 @@ def printGraph(m):
 def SimpleTest():
     n = 5
     w = 10
+    g1=random_weighted_graph(w, n, 0)
+    g2 = random_weighted_graph(w, n, 1)
+    g3 = random_weighted_graph(w, n, 0.7)
     print("prob 0%")
-    print(random_weighted_graph(w, n, 0))
+    print(g1)
+    printGraph(g1)
     print("prob 100%")
-    print(random_weighted_graph(w, n, 1))
+    print(g2)
+    printGraph(g2)
     print("prob 70%")
-    print(random_weighted_graph(w, n, 0.7))
+    print(g3)
+    printGraph(g3)
+
 
 def advancedTest():
     KruskalTime=[]
@@ -95,8 +101,8 @@ if __name__ == '__main__':
     connectedTimeProb = []
 
     SimpleTest()
-    kruskalTime,connectedTime=advancedTest()
-    kruskalTimeProb,connectedTimeProb=advancedTest2()
+    kruskalTime, connectedTime=advancedTest()
+    kruskalTimeProb, connectedTimeProb=advancedTest2()
 
     plot(kruskalTime,"test incremento nodi Kruskal")
     plot(connectedTime, "test incremento nodi componenti connesse")
