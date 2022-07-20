@@ -2,13 +2,44 @@
 
 # Press Maiusc+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-from CountingSort import CountingSort as CountingSort;
-from MergeSort import MergeSort as MergeSort;
-from QuickSort import QuickSort as QuickSort;
+import random
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+import numpy as np
+import matplotlib.pyplot as plt
+from timeit import default_timer as timer
+from CountingSort import CountingSort as CountingSort
+from MergeSort import MergeSort as MergeSort
+from QuickSort import QuickSort as QuickSort
+
+
+def test(A):
+    C = A
+    D = A
+    startM = timer()
+    MergeSort(C, 0, len(C) - 1)
+    timerM = timer() - startM
+    startC = timer()
+    B = CountingSort(A)
+    timerC = timer() - startC
+    startQ = timer()
+    QuickSort(C, 0, len(C) - 1)
+    timerQ = timer() - startQ
+    if (B == C).all():
+        if (C == D).all():
+            return timerM, timerC, timerQ
+
+
+def plot(merge, counting, quick, title):
+    x = np.arange(0, 4000, 100)
+    y = np.arange(0)
+    plt.plot(x, merge)
+    plt.plot(x, counting)
+    plt.plot(x, quick)
+    plt.title(title)
+    plt.xlabel('nodes')
+    plt.ylabel('time ')
+    plt.legend(['MERGE SORT', 'COUNTING SORT', 'QUICK SORT'])
+    plt.show()
 
 
 # Press the green button in the gutter to run the script.
@@ -16,11 +47,30 @@ if __name__ == '__main__':
     A = [9, 6, 3, 2, 5]
     B = CountingSort(A)
     print(B)
-    C= [9, 6, 3, 2, 5]
-    QuickSort(C,0,(len(C)-1))
+    C = [9, 6, 3, 2, 5]
+    QuickSort(C, 0, (len(C) - 1))
     print(C)
     C = [9, 6, 3, 2, 5]
-    MergeSort(C,0,(len(C)-1))
+    MergeSort(C, 0, (len(C) - 1))
     print(C)
+    xm = 0
+    xc = 0
+    xq = 0
+    midMtime = []
+    midCtime = []
+    midQtime = []
+
+    for i in range(1, 400, 10):
+        for j in range(40):
+            A = np.random.randint(100, size=i)
+            mM, mC, mQ = test(A)
+            xm += mM
+            xc += mC
+            xq += mQ
+        midMtime.append(xm / 40)
+        midCtime.append(xc / 40)
+        midQtime.append(xq / 40)
+
+    plot(midMtime, midCtime, midQtime, 'inserimento casuale')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
