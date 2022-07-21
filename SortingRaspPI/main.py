@@ -12,18 +12,22 @@ from MergeSort import MergeSort as MergeSort
 from QuickSort import QuickSort as QuickSort
 
 
-def test(A):
-    C = A
-    D = A
+def test(A, sorted=False):
+    #if(sorted==True):
+      #  A.sort()
+       # A=A[::-1]
+    D=A.copy()
+    C=A.copy()
+    startQ = timer()
+    QuickSort(D, 0, len(D) - 1)
+    timerQ = timer() - startQ
     startM = timer()
     MergeSort(C, 0, len(C) - 1)
     timerM = timer() - startM
     startC = timer()
     B = CountingSort(A)
     timerC = timer() - startC
-    startQ = timer()
-    QuickSort(C, 0, len(C) - 1)
-    timerQ = timer() - startQ
+
     if (B == C).all():
         if (C == D).all():
             return timerM, timerC, timerQ
@@ -63,7 +67,7 @@ if __name__ == '__main__':
     for i in range(1, 400, 10):
         for j in range(40):
             A = np.random.randint(100, size=i)
-            mM, mC, mQ = test(A)
+            mM, mC, mQ= test(A,True)
             xm += mM
             xc += mC
             xq += mQ
