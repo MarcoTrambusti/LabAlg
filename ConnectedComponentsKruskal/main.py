@@ -63,7 +63,7 @@ def advancedTest2():
     ConnectedTime=[]
     m=0
     n=0
-    for i in range(0,100):
+    for i in range(35,100):
         for j in range(200):
             wg=random_weighted_graph(10,30,i/100)
             tK=timer()

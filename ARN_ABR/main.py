@@ -3,7 +3,6 @@
 # Press Maiusc+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
-import numpy
 import numpy as np
 
 from ARN import RB as RB
@@ -18,7 +17,7 @@ def testInsert(abr, rb,values,ordered=(False)):
     r=0
     if ordered==True:
         values.sort()
-    l=values[-1]
+    #l=values[-1]
     for value in values:
       startABR=timer()
       abr.insert(value)
@@ -29,7 +28,7 @@ def testInsert(abr, rb,values,ordered=(False)):
       a+=timerABR
       r+=timerRB
 
-    return abr,rb,a/values.size,r/values.size,l
+    return abr,rb,a/values.size,r/values.size,value
 
 def testFind(abr,rb,k):
     startABR = timer()
@@ -52,54 +51,57 @@ def plot(abr,rb,title):
     plt.legend(['ABR', 'ARN'])
     plt.show()
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    midAbr=ABR()
-    midRb=RB()
+def runTests():
+    midAbr = ABR()
+    midRb = RB()
     wrsAbr = ABR()
     wrsRb = RB()
-    midAbrTime=[]
-    midRbTime=[]
-    midAbrSearchTime=[]
+    midAbrTime = []
+    midRbTime = []
+    midAbrSearchTime = []
     midRbSearchTime = []
     wrsAbrTime = []
     wrsRbTime = []
     wrsAbrSearchTime = []
     wrsRbSearchTime = []
-    x1=0
-    y1=0
-    w1=0
-    z1=0
+    x1 = 0
+    y1 = 0
+    w1 = 0
+    z1 = 0
     x2 = 0
     y2 = 0
     w2 = 0
     z2 = 0
 
-    for i in range(1,1000,100):
+    for i in range(1, 1000, 100):
         for j in range(40):
-            values = numpy.random.randint(0, i, size=i)
-            midAbr,midRb,a,r,l=testInsert(midAbr,midRb,values,False)
-            x1+=a
-            y1+=r
+            values =np.random.randint(0, i, size=i)
+            midAbr, midRb, a, r, l = testInsert(midAbr, midRb, values, False)
+            x1 += a
+            y1 += r
             a, r = testFind(midAbr, midRb, l)
-            w1+=a
-            z1+=r
-            wrsAbr,wrsRb,a, r, l = testInsert(wrsAbr, wrsRb,values,True)
+            w1 += a
+            z1 += r
+            wrsAbr, wrsRb, a, r, l = testInsert(wrsAbr, wrsRb, values, True)
             x2 += a
             y2 += r
             a, r = testFind(wrsAbr, wrsRb, l)
             w2 += a
             z2 += r
 
-        midAbrTime.append(x1/40)
-        midRbTime.append(y1/40)
-        midAbrSearchTime.append(w1/40)
-        midRbSearchTime.append(z1/40)
+        midAbrTime.append(x1 / 40)
+        midRbTime.append(y1 / 40)
+        midAbrSearchTime.append(w1 / 40)
+        midRbSearchTime.append(z1 / 40)
         wrsAbrTime.append(x2 / 40)
         wrsRbTime.append(y2 / 40)
         wrsAbrSearchTime.append(w2 / 40)
         wrsRbSearchTime.append(z2 / 40)
 
+    return midAbrTime,midRbTime,midAbrSearchTime,midRbSearchTime,wrsAbrTime,wrsRbTime,wrsAbrSearchTime,wrsRbSearchTime
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+    midAbrTime, midRbTime, midAbrSearchTime, midRbSearchTime, wrsAbrTime, wrsRbTime, wrsAbrSearchTime, wrsRbSearchTime=runTests()
     plot(midAbrTime,midRbTime,'inserimento casuale')
     plot(midAbrSearchTime,midRbSearchTime,'ricerca caso medio')
     plot(wrsAbrTime, wrsRbTime, 'inserimento ordinato')
