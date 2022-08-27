@@ -41,7 +41,7 @@ def testFind(abr,rb,k):
     return timerABR, timerRB
 
 def plot(abr,rb,title):
-    x = np.arange(0, 1000, 100)
+    x = np.arange(0, 1500, 100)
     y = np.arange(0)
     plt.plot(x,abr)
     plt.plot(x,rb)
@@ -73,7 +73,7 @@ def runTests():
     w2 = 0
     z2 = 0
 
-    for i in range(1, 1000, 100):
+    for i in range(1, 1500, 100):
         for j in range(40):
             values =np.random.randint(0, i, size=i)
             midAbr, midRb, a, r, l = testInsert(midAbr, midRb, values, False)

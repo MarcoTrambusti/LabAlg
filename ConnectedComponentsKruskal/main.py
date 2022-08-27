@@ -41,8 +41,9 @@ def advancedTest():
     ConnectedTime=[]
     m=0
     n=0
-    for i in range(3,50):
-        for j in range(200):
+    for i in range(3,100):
+        print(i)
+        for j in range(40):
             wg=random_weighted_graph(10,i,0.35)
             tK=timer()
             MST_Kruskal(wg,i)
@@ -52,8 +53,8 @@ def advancedTest():
             tc=timer()-tc
             m+=tK
             n+=tc
-        m/=200
-        n/=200
+        m/=40
+        n/=40
         KruskalTime.append(m)
         ConnectedTime.append(n)
     return KruskalTime,ConnectedTime
@@ -63,8 +64,9 @@ def advancedTest2():
     ConnectedTime=[]
     m=0
     n=0
-    for i in range(35,100):
-        for j in range(200):
+    for i in range(0,100):
+        print(i)
+        for j in range(40):
             wg=random_weighted_graph(10,30,i/100)
             tK=timer()
             MST_Kruskal(wg,30)
@@ -74,14 +76,14 @@ def advancedTest2():
             tc=timer()-tc
             m+=tK
             n+=tc
-        m/=200
-        n/=200
+        m/=40
+        n/=40
         KruskalTime.append(m)
         ConnectedTime.append(n)
     return KruskalTime,ConnectedTime
 
 def plot(K,title):
-    x = np.arange(0, 50, 10)
+    x = np.arange(0, 100, 10)
     y = np.arange(0)
     plt.plot(K)
     plt.title(title)
