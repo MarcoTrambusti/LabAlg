@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="020ca0d3-9663-4524-92e3-4fb0b9e6cce4" name="Changes" comment="aggiornamenti test" />
+    <list default="true" id="020ca0d3-9663-4524-92e3-4fb0b9e6cce4" name="Changes" comment="aggiornamenti test">
+      <change beforePath="$PROJECT_DIR$/../SortingRaspPI/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../SortingRaspPI/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +38,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../SortingRaspPI" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.micropython.configurable" />
   </component>
-  <component name="RunManager" selected="MicroPython.Flash main.py">
+  <component name="RunManager" selected="Python.main">
     <configuration name="Flash CountingSort.py" type="MicroPythonConfigurationType" factoryName="MicroPython" nameIsGenerated="true" path="C:\Users\gigi pastrocchi.000\Desktop\compitiu\LAB.ALGORITMI\LabAlg\u_sortingPI\CountingSort.py">
       <module name="u_sortingPI" />
       <method v="2" />
@@ -93,6 +97,7 @@
       <workItem from="1660035742802" duration="2613000" />
       <workItem from="1661600578509" duration="3939000" />
       <workItem from="1661691288242" duration="1598000" />
+      <workItem from="1662021798446" duration="2519000" />
     </task>
     <servers />
   </component>
@@ -115,6 +120,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="aggiornamenti test" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/u_sortingPI$main.coverage" NAME="main Coverage Results" MODIFIED="1659427329129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/u_sortingPI$main.coverage" NAME="main Coverage Results" MODIFIED="1662022837616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

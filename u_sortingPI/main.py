@@ -1,7 +1,6 @@
 import random
 import time
 
-from utime import sleep
 from QuickSort import QuickSort
 from MergeSort import MergeSort
 from CountingSort import CountingSort
