@@ -66,7 +66,7 @@ def advancedTest2():
     n=0
     for i in range(0,100,5):
         print(i)
-        for j in range(10):
+        for j in range(40):
             wg=random_weighted_graph(10,50,i/100)
             tK=timer()
             MST_Kruskal(wg,50)
@@ -76,18 +76,18 @@ def advancedTest2():
             tc=timer()-tc
             m+=tK
             n+=tc
-        m/=10
-        n/=10
+        m/=40
+        n/=40
         KruskalTime.append(m)
         ConnectedTime.append(n)
     return KruskalTime,ConnectedTime
 
-def plot(K,title):
-    x = np.arange(0, 200, 10)
+def plot(K,title,l,txtX):
+    x = np.arange(0,l,5)
     y = np.arange(0)
-    plt.plot(K)
+    plt.plot(x,K)
     plt.title(title)
-    plt.xlabel('nodes')
+    plt.xlabel(txtX)
     plt.ylabel('time ')
    # plt.legend(['Kruskal', 'Connected components'])
     plt.show()
@@ -106,10 +106,10 @@ if __name__ == '__main__':
     kruskalTime, connectedTime=advancedTest()
     kruskalTimeProb, connectedTimeProb=advancedTest2()
 
-    plot(kruskalTime,"test incremento nodi Kruskal")
-    plot(connectedTime, "test incremento nodi componenti connesse")
-    plot(kruskalTimeProb,"test incremento probabilità Kruskal")
-    plot(connectedTimeProb,"test incremento probabilità componenti connesse")
+    plot(kruskalTime,"test incremento nodi Kruskal",200,"nodi")
+    plot(connectedTime, "test incremento nodi componenti connesse",200,"nodi")
+    plot(kruskalTimeProb,"test incremento probabilità Kruskal",100,"prob. presenza archi")
+    plot(connectedTimeProb,"test incremento probabilità componenti connesse",100,"prob. presenza archi")
 
     """
 
