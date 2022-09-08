@@ -26,6 +26,7 @@ class ABR:
       self.setRoot(key)
     else:
       self.insertNode(self.root, key)
+
   def insertNode(self, currentNode, key):
     if (key <= currentNode.key):
       if (currentNode.left):
@@ -37,8 +38,10 @@ class ABR:
         self.insertNode(currentNode.right, key)
       else:
         currentNode.right = Node(key)
+
   def find(self, key):
     return self.findNode(self.root, key)
+
   def findNode(self, currentNode, key):
     if (currentNode is None):
       return False
@@ -48,6 +51,7 @@ class ABR:
       return self.findNode(currentNode.left, key)
     else:
       return self.findNode(currentNode.right, key)
+
   def inorder(self):
     def _inorder(v):
       if(v is None):

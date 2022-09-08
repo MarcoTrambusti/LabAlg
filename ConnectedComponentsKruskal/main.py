@@ -4,37 +4,11 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 import matplotlib.pyplot as plt
-import networkx as nx
 import numpy as np
 from timeit import default_timer as timer
 from RandomWeightedGraph import random_weighted_graph
 from ConnectedComponents import Connect_comp
 from Kruskal import MST_Kruskal
-
-def printGraph(m):
-    G = nx.from_numpy_matrix(m, parallel_edges=True, create_using=nx.DiGraph)
-    pos = nx.spring_layout(G)
-    nx.draw_networkx(G, pos, arrows=True, arrowstyle="->", connectionstyle="arc3,rad=0.1")
-    labels = nx.get_edge_attributes(G, "weight", )
-    nx.draw_networkx_edge_labels(G, pos, edge_labels=labels, label_pos=0.6, clip_on=False)
-    plt.show()
-
-def SimpleTest():
-    n = 5
-    w = 10
-    g1=random_weighted_graph(w, n, 0)
-    g2 = random_weighted_graph(w, n, 1)
-    g3 = random_weighted_graph(w, n, 0.7)
-    print("prob 0%")
-    print(g1)
-    printGraph(g1)
-    print("prob 100%")
-    print(g2)
-    printGraph(g2)
-    print("prob 70%")
-    print(g3)
-    printGraph(g3)
-
 
 def advancedTest():
     KruskalTime=[]
@@ -42,7 +16,6 @@ def advancedTest():
     m=0
     n=0
     for i in range(3,200,5):
-        print(i)
         for j in range(10):
             wg=random_weighted_graph(10,i,0.35)
             tK=timer()
@@ -65,7 +38,6 @@ def advancedTest2():
     m=0
     n=0
     for i in range(0,100,2):
-        print(i)
         for j in range(40):
             wg=random_weighted_graph(10,50,i/100)
             tK=timer()
@@ -89,20 +61,14 @@ def plot(K,title,l,i,txtX):
     plt.title(title)
     plt.xlabel(txtX)
     plt.ylabel('time ')
-   # plt.legend(['Kruskal', 'Connected components'])
     plt.show()
 
 if __name__ == '__main__':
-    n = 5
-    p = 0.3
-    w = 10
-
     kruskalTime=[]
     connectedTime=[]
     kruskalTimeProb = []
     connectedTimeProb = []
 
-    SimpleTest()
     kruskalTime, connectedTime=advancedTest()
     kruskalTimeProb, connectedTimeProb=advancedTest2()
 
@@ -110,21 +76,4 @@ if __name__ == '__main__':
     plot(connectedTime, "test incremento nodi componenti connesse",200,5,"nodi")
     plot(kruskalTimeProb,"test incremento probabilità Kruskal",100,2,"prob. presenza archi")
     plot(connectedTimeProb,"test incremento probabilità componenti connesse",100,2,"prob. presenza archi")
-
-    """
-
-    plt.plot(data)
-    plt.show()
-    weightedgraph = random_weighted_graph(w, n, p)
-    print(weightedgraph)
-
-    A,m= MST_Kruskal(weightedgraph, n)
-    print(A,"costo minimo",m)
-    printGraph(weightedgraph)
-    print()
-    u = Connect_comp(weightedgraph, n)
-
-    for s in u.set:
-        print(s.set, s.set[0])
-"""
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

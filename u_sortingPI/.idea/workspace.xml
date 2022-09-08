@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="020ca0d3-9663-4524-92e3-4fb0b9e6cce4" name="Changes" comment="aggiornamenti test">
-      <change beforePath="$PROJECT_DIR$/../SortingRaspPI/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../SortingRaspPI/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ARN_ABR/ABR.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ARN_ABR/ABR.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ARN_ABR/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ARN_ABR/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConnectedComponentsKruskal/Kruskal.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ConnectedComponentsKruskal/Kruskal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConnectedComponentsKruskal/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ConnectedComponentsKruskal/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuickSort.py" beforeDir="false" afterPath="$PROJECT_DIR$/QuickSort.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +38,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SortingRaspPI" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.micropython.configurable" />
   </component>
   <component name="RunManager" selected="Python.main">
@@ -98,6 +101,7 @@
       <workItem from="1661600578509" duration="3939000" />
       <workItem from="1661691288242" duration="1598000" />
       <workItem from="1662021798446" duration="2519000" />
+      <workItem from="1662663447889" duration="738000" />
     </task>
     <servers />
   </component>

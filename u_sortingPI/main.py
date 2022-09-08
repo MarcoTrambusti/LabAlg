@@ -9,8 +9,6 @@ import sys
 def test(A, sorted=False):
     if (sorted == True):
         A.sort()
-        #A = A[::2] + A[1::2]
-        #A = A[::-1]
 
     D = A.copy()
     C = A.copy()
@@ -43,7 +41,6 @@ def RunTests():
     wrsCtime = []
     wrsQtime = []
     for i in range(1, 400, 10):
-        print(i)
         for j in range(40):
             A = []
             for n in range(i):
@@ -67,18 +64,8 @@ def RunTests():
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    A = [9, 6, 3, 2, 5]
-    B = CountingSort(A)
-    print(B)
-    C = [9, 6, 3, 2, 5]
-    QuickSort(C, 0, (len(C) - 1))
-    print(C)
-    C = [9, 6, 3, 2, 5]
-    MergeSort(C, 0, (len(C) - 1))
-    print(C)
-
-
     midMtime,wrsMtime,midCtime,wrsCtime,midQtime,wrsQtime=RunTests()
+
     print("caso Medio:")
     print(midMtime)
     print(midCtime)

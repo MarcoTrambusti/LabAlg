@@ -10,14 +10,14 @@ from ABR import ABR as ABR
 from timeit import default_timer as timer
 import  matplotlib.pyplot as plt
 
-def testInsert(abr, rb,values,ordered=(False)):
+def testInsert(values,ordered=(False)):
     abr=ABR()
     rb=RB()
     a=0
     r=0
     if ordered==True:
         values.sort()
-    #l=values[-1]
+
     for value in values:
       startABR=timer()
       abr.insert(value)
@@ -76,13 +76,13 @@ def runTests():
     for i in range(1, 1500, 100):
         for j in range(40):
             values =np.random.randint(0, i, size=i)
-            midAbr, midRb, a, r, l = testInsert(midAbr, midRb, values, False)
+            midAbr, midRb, a, r, l = testInsert(values, False)
             x1 += a
             y1 += r
             a, r = testFind(midAbr, midRb, l)
             w1 += a
             z1 += r
-            wrsAbr, wrsRb, a, r, l = testInsert(wrsAbr, wrsRb, values, True)
+            wrsAbr, wrsRb, a, r, l = testInsert(values, True)
             x2 += a
             y2 += r
             a, r = testFind(wrsAbr, wrsRb, l)
