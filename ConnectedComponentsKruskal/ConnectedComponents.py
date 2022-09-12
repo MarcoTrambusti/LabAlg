@@ -32,10 +32,16 @@ class UnionFind:
 
     def Union(self, x, y):
         if self.Find(x) and self.Find(y) and (self.Find(x) != self.Find(y)):
+             """"
             z = self.Find(x).set + self.Find(y).set
             self.MakeSet(z)
             self.set.remove(self.Find(x))
             self.set.remove(self.Find(y))
+            """
+            z = self.Find(y).set
+            self.set.remove(self.Find(y))
+            self.Find(x).union(DisjSet(z))
+
 
     def FindSet(self, z):
         if self.Find(z):
